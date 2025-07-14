@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vulnerable XSS</title>
+</head>
+<body>
+  <h1>Search Page</h1>
+
+  <form method="GET">
+    <input type="text" name="q" placeholder="Search...">
+    <button type="submit">Submit</button>
+  </form>
+
+  <p>Results for:
+    <span id="result"></span>
+  </p>
+
+  <script>
+    const q = new URLSearchParams(window.location.search).get("q");
+    if (q) {
+      document.getElementById("result").innerHTML = q;
+    }
+  </script>
+</body>
+</html>
+

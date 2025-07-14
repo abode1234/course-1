@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vulnerable Page</title>
+</head>
+<body>
+  <h1>Welcome to Vulnerable Page</h1>
+
+  <form action="" method="GET">
+    <label>Search: <input type="text" name="q"></label>
+    <input type="submit" value="Search">
+  </form>
+
+  <p>Results for: <strong id="output">
+    <script>
+      const urlParams = new URLSearchParams(window.location.search);
+      document.getElementById("output").innerHTML = urlParams.get("q");
+    </script>
+  </strong></p>
+
+  <form action="http://example.com/change-email" method="POST">
+    <input type="hidden" name="email" value="attacker@example.com">
+    <input type="submit" value="Change Email (CSRF)">
+  </form>
+        <br>
+  <iframe src="https://blog-website-liard-eta.vercel.app/" width="500" height="300"></iframe>
+        <br>
+        <script>
+        const x = elmine('iframe');
+        </script>
+
+  <a href="https://blog-website-liard-eta.vercel.app/">
+</body>
+</html>
+
